@@ -7,7 +7,8 @@
   <div class="col-md-8">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="{{ url_for('list_posts') }}" class="text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('posts_class.list_create_view') }}"
+            class="text-decoration-none">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Post Details</li>
       </ol>
     </nav>
@@ -51,7 +52,7 @@
     </div>
     <div class="card p-4 mb-5 border-0 shadow-sm bg-white">
       <h4 class="h6 fw-bold mb-3 text-dark">Leave a Comment</h4>
-      <form action="{{ url_for('post_details', post_id=post.id) }}" method="POST">
+      <form action="{{ url_for('posts_class.post_details', post_id=post.id) }}" method="POST">
         <div class="mb-3">
           <label for="comment_author" class="form-label small fw-semibold">Your Name</label>
           <input type="text" class="form-control" id="comment_author" name="comment_author"
@@ -69,12 +70,12 @@
     </div>
 
     <div class="d-flex justify-content-between border-top pt-4">
-      <a href="{{ url_for('list_posts') }}" class="btn btn-outline-secondary px-4">Back to List</a>
+      <a href="{{ url_for('posts_class.list_create_view') }}" class="btn btn-outline-secondary px-4">Back to List</a>
 
       <div class="d-flex gap-2">
-        <a href="{{ url_for('update_post', post_id=post.id) }}"
+        <a href="{{ url_for('posts_class.post_edit', post_id=post.id) }}"
           class="btn btn-warning px-4 text-dark fw-semibold">Edit</a>
-        <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST"
+        <form action="{{ url_for('posts_class.post_delete', post_id=post.id) }}" method="POST"
           onsubmit="return confirm('Are you sure you want to delete this post permanently?');">
           <button type="submit" class="btn btn-danger px-4">Delete Post</button>
         </form>

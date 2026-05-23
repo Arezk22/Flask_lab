@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- تم تغيير الاتجاه إلى ltr واللغة إلى en -->
 <html lang="en" dir="ltr">
 
 <head>
@@ -32,13 +31,11 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
-  <!-- شريط التنقل (Navbar) متناسق مع الـ LTR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
-      <a class="navbar-brand" href="{{ url_for('list_posts') }}">📝 Posts Dashboard</a>
+      <a class="navbar-brand" href="{{ url_for('posts_class.list_create_view') }}">📝 Posts Dashboard</a>
       <div class="ms-auto">
-        <a href="{{ url_for('create_post') }}" class="btn btn-success btn-sm">+ Add New Post</a>
+        <a href="/create" class="btn btn-success btn-sm">+ Add New Post</a>
       </div>
     </div>
   </nav>

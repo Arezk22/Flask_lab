@@ -14,7 +14,7 @@
       <h4 class="alert-heading mb-3">No posts available!</h4>
       <p class="text-muted">The database is currently empty. Start by creating your first post!</p>
       <hr class="w-25 mx-auto">
-      <a href="{{ url_for('create_post') }}" class="btn btn-primary mt-2">Create Your First Post</a>
+      <a href="{{ url_for('posts_class.list_create_view') }}" class="btn btn-primary mt-2">Create Your First Post</a>
     </div>
     {% else %}
     <div class="row row-cols-1 g-4">
@@ -33,16 +33,19 @@
             </p>
           </div>
           <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center pb-3">
-            <a href="{{ url_for('post_details', post_id=post.id) }}" class="btn btn-outline-primary btn-sm">
+            <a href="{{ url_for('posts_class.post_details', post_id=post.id) }}"
+              class="btn btn-outline-primary btn-sm">
               Read More
             </a>
 
             <div class="btn-group" dir="ltr">
-              <a href="{{ url_for('post_comments', post_id=post.id) }}"
+              <a href="{{ url_for('posts_class.comments_view', post_id=post.id) }}"
                 class="btn btn-outline-secondary btn-sm">Comments</a>
-              <a href="{{ url_for('update_post', post_id=post.id) }}" class="btn btn-outline-secondary btn-sm">Edit</a>
+              <a href="{{ url_for('posts_class.post_edit', post_id=post.id) }}"
+                class="btn btn-outline-secondary btn-sm">Edit</a>
               <!-- Form for deletion to protect the POST request -->
-              <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST" style="display:inline;"
+              <form action="{{ url_for('posts_class.post_delete', post_id=post.id) }}" method="POST"
+                style="display:inline;"
                 onsubmit="return confirm('Are you sure you want to delete this post permanently?');">
                 <button type="submit" class="btn btn-outline-danger btn-sm rounded-start-0">Delete</button>
               </form>
